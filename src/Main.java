@@ -18,26 +18,4 @@ public class Main {
             System.out.println(e.getMessage());
         }
     }
-//
-//        for (char symb : StringForDecrypt.toCharArray()) {
-//            boolean isCapital = Character.isUpperCase(symb);
-//
-//            for (int i = 0; i < alphabetArray.length; i++) {
-//
-//                if (Character.toLowerCase(symb) == alphabetArray[i]) {
-//                    boolean isOffset = i < encryptKey;
-//
-//                    int index = isOffset ? alphabetArray.length - (encryptKey - i) : i - encryptKey;
-//
-//                    if (isCapital) {
-//                        builder.append(Character.toUpperCase(alphabetArray[index]));
-//                    } else {
-//                        builder.append((alphabetArray[index]));
-//                    }
-//
-//                    break;
-//                }
-//
-//            }
-
 }
