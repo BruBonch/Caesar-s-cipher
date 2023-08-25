@@ -1,7 +1,14 @@
 # Compiled class file
 *.class
+<<<<<<< HEAD
 /.idea
 out
+=======
+*.iml
+.idea/
+/out
+
+>>>>>>> feature/encrypting
 # Log file
 *.log
 
