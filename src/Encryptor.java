@@ -1,12 +1,7 @@
 package src;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
-import java.util.Arrays;
+
 
 public class Encryptor {
     public void encrypt (String filePath, String alphabet, int encryptKey) throws IOException {
@@ -35,5 +30,5 @@ public class Encryptor {
         }
 
         FileManager.writeFile(builder.toString().getBytes(), filePath, "encrypted");
-    };
+    }
 }
