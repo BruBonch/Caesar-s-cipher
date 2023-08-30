@@ -8,27 +8,7 @@ public class Decryptor {
         char[] alphabetArray = alphabet.toCharArray();
         StringBuilder builder = new StringBuilder();
 
-        for (char symb : stringForDecrypt.toCharArray()) {
-            boolean isCapital = Character.isUpperCase(symb);
-
-            for (int i = 0; i < alphabetArray.length; i++) {
-
-                if (Character.toLowerCase(symb) == alphabetArray[i]) {
-                    boolean isOffset = i < encryptKey;
-
-                    int index = isOffset ? alphabetArray.length - (encryptKey - i) : i - encryptKey;
-
-                    if (isCapital) {
-                        builder.append(Character.toUpperCase(alphabetArray[index]));
-                    } else {
-                        builder.append((alphabetArray[index]));
-                    }
-
-                    break;
-                }
-
-            }
-        }
+        Util.keySelection(stringForDecrypt, alphabetArray, builder, encryptKey);
 
         FileManager.writeFile(builder.toString().getBytes(), filePath, "decrypted");
     }
@@ -36,6 +16,8 @@ public class Decryptor {
     public void brutForce(String filePath, String alphabet) throws IOException {
         int encryptSpaceCount = 0;
         int decryptSpaceCount = 0;
+        int key = 1;
+
         String stringForBrutForce = FileManager.readFile(filePath);
         char[] alphabetArray = alphabet.toCharArray();
         StringBuilder builder = new StringBuilder();
@@ -46,33 +28,8 @@ public class Decryptor {
             }
         }
 
-        int key = 1;
-
         while (encryptSpaceCount >= decryptSpaceCount) {
-
-            for (char symb : stringForBrutForce.toCharArray()) {
-                boolean isCapital = Character.isUpperCase(symb);
-
-                for (int i = 0; i < alphabetArray.length; i++) {
-
-                    if (Character.toLowerCase(symb) == alphabetArray[i]) {
-                        boolean isOffset = i < key;
-
-                        int index = isOffset ? alphabetArray.length - (key - i) : i - key;
-
-                        if (isCapital) {
-                            builder.append(Character.toUpperCase(alphabetArray[index]));
-                        } else {
-                            builder.append((alphabetArray[index]));
-                        }
-
-                        break;
-                    }
-
-                }
-            }
-
-            key++;
+            Util.keySelection(stringForBrutForce, alphabetArray, builder, key);
 
             for (int i = 0; i < builder.length(); i++) {
                 if (builder.charAt(i) == ' ') decryptSpaceCount++;
@@ -82,6 +39,8 @@ public class Decryptor {
                 builder.delete(0, builder.length());
                 decryptSpaceCount = 0;
             }
+
+            key++;
         }
 
         FileManager.writeFile(builder.toString().getBytes(), filePath, "brut_force");
