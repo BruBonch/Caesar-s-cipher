@@ -13,8 +13,8 @@ public class Main {
 
         try {
             encryptor.encrypt("D:/file.txt", ALPHABET_STRING, ENCRYPT_KEY);
-//            decryptor.decrypt("D:/encrypted.txt", ALPHABET_STRING, ENCRYPT_KEY);
-            decryptor.brutForce("D:/encrypted.txt", ALPHABET_STRING);
+//            decryptor.decrypt("D:/file_ecnrypt.txt", ALPHABET_STRING, ENCRYPT_KEY);
+            decryptor.brutForce("D:/file_encrypt.txt", ALPHABET_STRING);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -10,7 +10,7 @@ public class Decryptor {
 
         Util.keySelection(stringForDecrypt, alphabetArray, builder, encryptKey);
 
-        FileManager.writeFile(builder.toString().getBytes(), filePath, "decrypted");
+        FileManager.writeFile(builder.toString().getBytes(), filePath, "decrypt");
     }
 
     public void brutForce(String filePath, String alphabet) throws IOException {

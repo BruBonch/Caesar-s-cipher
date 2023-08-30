@@ -29,6 +29,6 @@ public class Encryptor {
             }
         }
 
-        FileManager.writeFile(builder.toString().getBytes(), filePath, "encrypted");
+        FileManager.writeFile(builder.toString().getBytes(), filePath, "encrypt");
     }
 }
