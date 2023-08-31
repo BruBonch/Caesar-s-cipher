@@ -3,6 +3,10 @@ package src;
 public class Util {
     public static String getFileName(String path, String fileName) {
         int dotIndex = path.lastIndexOf(".");
+        if (path.contains("encrypt")) {
+            int dividerIndex = path.lastIndexOf("_");
+            return path.substring(0, dividerIndex + 1) + fileName + path.substring(dotIndex);
+        }
         return path.substring(0, dotIndex) + "_" + fileName + path.substring(dotIndex);
     }
 
